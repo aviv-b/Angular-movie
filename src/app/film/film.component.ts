@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IFilm } from '../models/film';
-import { FilmService } from './film.service';
+import { IFilm } from '../shared/film';
+import { FilmService } from '../shared/film.service';
 
 @Component({
   selector: 'app-film',
