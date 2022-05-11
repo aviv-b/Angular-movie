@@ -20,6 +20,10 @@ export class CharacterComponent implements OnInit {
   ngOnChanges(): void {
     this.getPeople(this.pepoleUrl);
   }
+  /**
+   * Get one person full info 
+   * @param url - People url api which return a people object
+   */
   getPeople(url: any): void {
     this.peopleService.getByUrl(url)
     .subscribe({
