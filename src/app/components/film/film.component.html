@@ -1,0 +1,30 @@
+<div class="container">
+    <!-- search -->
+    <div class="row mb-20">
+        <h1>Films</h1>
+        <input type="text" name="search" 
+            [(ngModel)]="searchText" 
+            placeholder="Search film" 
+            class="form-control">
+    </div>
+    <!-- film object  -->
+    <div class="row myBox" 
+         *ngFor="let film of films | filter: searchText; let fid=index">
+        <h5 class="text-primary">{{film.title}}</h5>
+        <hr>
+        <p><strong>Release date:</strong> {{film.release_date}}</p>
+        <p><strong>Producer:</strong> {{film.producer}} </p>
+        <strong>Characters: </strong>
+        <!-- characters buttons  -->
+        <div class="characters">
+            <span *ngFor="let cUrl of film.characters; let cid=index">
+                <button  (click)="btnCharacterClick(fid,cUrl)" class="btn btn-primary"> {{cid}} </button> 
+           </span>
+        </div>
+        <!-- character view only for this film view -->
+        <div *ngIf="fid == currFilmId">
+            <app-character [pepoleUrl]="characterUrl"></app-character>
+       </div>
+    </div>
+</div>
+
